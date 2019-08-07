@@ -1,17 +1,19 @@
 {
-	"name": "sql-2-go-struct",
+	"name": "ddl-2-go-struct",
 	"displayName": "DDL 2 Go Struct",
+	"publisher": "ddl-2-go-struct",
 	"description": "Convert the DDL instructions to Go Struct",
 	"version": "0.0.1",
-	"icon": "https://raw.githubusercontent.com/Wandecilenio/DDL2GS/master/icon.png",
+	"icon": "icon.png",
 	"engines": {
 		"vscode": "^1.36.0"
 	},
 	"categories": [
-		"Other"
+		"Other",
+		"Formatters"
 	],
 	"activationEvents": [
-		"onCommand:extension.sql-2-go-struct"
+		"onCommand:extension.ddl-2-go-struct"
 	],
 	"main": "./extension.js",
 	"author": {
@@ -26,14 +28,14 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.sql-2-go-struct",
+				"command": "extension.ddl-2-go-struct",
 				"title": "DDL2GS: Convert the DDL instructions to Go Struct"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "extension.sql-2-go-struct",
-				"title": "%extension.sql-2-go-struct%",
+				"command": "extension.ddl-2-go-struct",
+				"title": "%extension.ddl-2-go-struct%",
 				"key": "ctrl+shift+i",
 				"mac": "cmd+shift+i"
 			}
