@@ -1,0 +1,52 @@
+{
+	"name": "sql-2-go-struct",
+	"displayName": "DDL 2 Go Struct",
+	"description": "Convert the DDL instructions to Go Struct",
+	"version": "0.0.1",
+	"icon": "icon.png",
+	"engines": {
+		"vscode": "^1.36.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.sql-2-go-struct"
+	],
+	"main": "./extension.js",
+	"author": {
+		"name": "Wandecilenio Martins",
+		"email": "wandecileniomartins@gmail.com",
+		"url": "https://wandecilenio.github.io/"
+	},
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.sql-2-go-struct",
+				"title": "DDL2GS: Convert the DDL instructions to Go Struct"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.sql-2-go-struct",
+				"title": "%extension.sql-2-go-struct%",
+				"key": "ctrl+shift+i",
+				"mac": "cmd+shift+i"
+			}
+		]
+	},
+	"scripts": {
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.36.0",
+		"eslint": "^5.13.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.0.2"
+	}
+}
