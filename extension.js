@@ -64,7 +64,7 @@ function activate(context) {
 					let tableTitle = rs[1];
 					tableTitle = tableTitle.replace(/([a-zA-Z]+\.)/, "")
 					tableTitle = tableTitle.replace(/^(t\_)/, "")
-					structCodes = [...structCodes, "// " + makeTitle(tableTitle) + " --"]
+					structCodes = [...structCodes, "\n// " + makeTitle(tableTitle) + " --"]
 					structCodes = [...structCodes, "type " + makeTitle(tableTitle) + " struct {"]
 				}
 
@@ -90,12 +90,15 @@ function activate(context) {
 					const colunmName = line.split(" ")[0]
 					structCodes = [...structCodes, "\t" + makeTitle(colunmName) + "\t*time.Time\t`db:\""+colunmName+"\"`"]
 				}
+				
+				if(/\)\;/gi.exec(line) != null) {
+					structCodes = [...structCodes, "}"]
+				}
 			} catch (error) {
 				console.error(error)
 			}
 		});
-
-		structCodes = [...structCodes, "}"]
+		
 		editor.edit(builder => {
 			builder.replace(selection, structCodes.join("\n"))
 		})
