@@ -19,6 +19,10 @@
 		"email": "wandecileniomartins@gmail.com",
 		"url": "https://wandecilenio.github.io/"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Wandecilenio/DDL2GS.git"
+	},
 	"contributes": {
 		"commands": [
 			{
