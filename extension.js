@@ -68,7 +68,7 @@ function activate(context) {
 					structCodes = [...structCodes, "type " + makeTitle(tableTitle) + " struct {"]
 				}
 
-				if(/[a-zA-Z\_]+\s(text|character)/gi.exec(line) != null) {
+				if(/[a-zA-Z\_]+\s(text|character|inet)/gi.exec(line) != null) {
 					const colunmName = line.split(" ")[0]
 					if(/not\snull/gi.exec(line) == null) {
 						structCodes = [...structCodes, "\t" + makeTitle(colunmName) + "\tsql.NullString\t`db:\""+colunmName+"\"`"]
@@ -84,6 +84,29 @@ function activate(context) {
 					} else {
 						structCodes = [...structCodes, "\t" + makeTitle(colunmName) + "\tint64\t`db:\""+colunmName+"\"`"]
 					}
+				}
+				
+				if(/[a-zA-Z\_]+\s(float|numeric)/gi.exec(line) != null) {
+					const colunmName = line.split(" ")[0]
+					if(/not\snull/gi.exec(line) == null) {
+						structCodes = [...structCodes, "\t" + makeTitle(colunmName) + "\tsql.NullFloat64\t`db:\""+colunmName+"\"`"]
+					} else {
+						structCodes = [...structCodes, "\t" + makeTitle(colunmName) + "\tfloat64\t`db:\""+colunmName+"\"`"]
+					}
+				}
+
+				if(/[a-zA-Z\_]+\s(boolean)/gi.exec(line) != null) {
+					const colunmName = line.split(" ")[0]
+					if(/not\snull/gi.exec(line) == null) {
+						structCodes = [...structCodes, "\t" + makeTitle(colunmName) + "\tsql.NullBool\t`db:\""+colunmName+"\"`"]
+					} else {
+						structCodes = [...structCodes, "\t" + makeTitle(colunmName) + "\tbool\t`db:\""+colunmName+"\"`"]
+					}
+				}
+
+				if(/[a-zA-Z\_]+\s(json)/gi.exec(line) != null) {
+					const colunmName = line.split(" ")[0]
+					structCodes = [...structCodes, "\t" + makeTitle(colunmName) + "\tmap[string]interface{}\t`db:\""+colunmName+"\"`"]
 				}
 				
 				if(/[a-zA-Z\_]+\s(timestamp)/gi.exec(line) != null) {
