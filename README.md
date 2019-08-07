@@ -23,4 +23,17 @@ And run the `DDL2GS: Convert the DDL instructions to Go Struct` to convert the s
 
 Or just select it and press `CTRL+SHIFT+i`
 
+Will result in:
+
+```go
+// Customer --
+type Customer struct {
+	ID	int64	`db:"id"`
+	Name	string	`db:"name"`
+	Document	string	`db:"document"`
+	CreatedAT	*time.Time	`db:"created_at"`
+	UpdatedAT	*time.Time	`db:"updated_at"`
+}
+```
+
 **Enjoy!**
