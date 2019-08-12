@@ -1,9 +1,9 @@
 {
 	"name": "ddl-2-go-struct",
 	"displayName": "DDL 2 Go Struct",
-	"publisher": "ddl-2-go-struct",
+	"publisher": "wandecilenio-martins",
 	"description": "Convert the DDL instructions to Go Struct",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"icon": "icon.png",
 	"engines": {
 		"vscode": "^1.36.0"

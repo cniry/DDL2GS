@@ -77,7 +77,7 @@ function activate(context) {
 					}
 				}
 				
-				if(/[a-zA-Z\_]+\s(serial|integer|bigserial|bigint)/gi.exec(line) != null) {
+				if(/[a-zA-Z\_]+\s(serial|integer|bigserial|bigint|smallint)/gi.exec(line) != null) {
 					const colunmName = line.split(" ")[0]
 					if(/not\snull/gi.exec(line) == null) {
 						structCodes = [...structCodes, "\t" + makeTitle(colunmName) + "\tsql.NullInt64\t`db:\""+colunmName+"\"`"]
